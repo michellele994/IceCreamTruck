@@ -13,13 +13,12 @@ setInterval(function () {
 }, 800)
 
 function setUp(xPos, yPos) {
-    var recanvas = document.getElementById("truck");
-    var rectx = recanvas.getContext("2d");
-    rectx.fillStyle = "#FFFFFF";
-    rectx.fillRect(0, 0, 500, 500);
-
     var canvas = document.getElementById("truck");
     var ctx = canvas.getContext("2d");
+    ctx.fillStyle = "#FFFFFF";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+
     ctx.fillStyle = "#FF0000";
     ctx.fillRect(xPos, yPos, 150, 75);
 }
