@@ -1,23 +1,28 @@
-var xPos = 0;
-var yPos = 0
+var canvas = document.getElementById("truck");
+var ctx = canvas.getContext("2d");
+var xPos = canvas.width / 5;
+var yPos = canvas.height / 5
 setInterval(function () {
-    if (yPos == 0) {
-        yPos = 50;
+    if (yPos == canvas.height / 5) {
+        yPos = canvas.height / 5 + 20;
         setUp(xPos, yPos)
     }
     else {
-        yPos = 0;
+        yPos = canvas.height / 5;
         setUp(xPos, yPos)
     }
 
 }, 800)
 
 function setUp(xPos, yPos) {
-    var canvas = document.getElementById("truck");
-    var ctx = canvas.getContext("2d");
+    drawCanvas(canvas, ctx);
+    drawTruck(canvas, ctx);
+}
+function drawCanvas(canvas, ctx) {
     ctx.fillStyle = "#FFFFFF";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-
+}
+function drawTruck(canvas, ctx) {
     ctx.beginPath()
     ctx.lineWidth = "4";
     ctx.strokeStyle = "blue";
