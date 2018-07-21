@@ -18,7 +18,11 @@ function setUp(xPos, yPos) {
     ctx.fillStyle = "#FFFFFF";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-
+    ctx.beginPath()
+    ctx.lineWidth = "4";
+    ctx.strokeStyle = "blue";
+    ctx.rect(xPos, yPos, 150, 75);
     ctx.fillStyle = "#FF0000";
-    ctx.fillRect(xPos, yPos, 150, 75);
+    ctx.fill();
+    ctx.stroke();
 }
