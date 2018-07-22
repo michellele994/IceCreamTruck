@@ -1,14 +1,14 @@
 var canvas = document.getElementById("truck");
 var ctx = canvas.getContext("2d");
 var xPos = canvas.width / 4;
-var yPos = canvas.height / 5
+var yPos = canvas.height / 4;
 setInterval(function () {
-    if (yPos == canvas.height / 5) {
-        yPos = canvas.height / 5 + 5;
+    if (yPos == canvas.height / 4) {
+        yPos = canvas.height / 4 + 3;
         setUp(xPos, yPos)
     }
     else {
-        yPos = canvas.height / 5;
+        yPos = canvas.height / 4;
         setUp(xPos, yPos)
     }
 
@@ -66,7 +66,7 @@ function drawTruck(canvas, ctx) {
     ctx.beginPath()
     ctx.lineWidth = "45";
     ctx.strokeStyle = "#777";
-    ctx.arc((canvas.width * (1 / 4)) - (canvas.width * (1 / 25)), (canvas.height * (1 / 5)) + (canvas.height * (3 / 5)), 30, 0, 2 * Math.PI);
+    ctx.arc((canvas.width * (1 / 4)) - (canvas.width * (1 / 25)), (canvas.height * (1 / 4)) + (canvas.height * (3 / 5)), 30, 0, 2 * Math.PI);
     ctx.stroke();
 
     // ctx.moveTo(xPos, yPos);
