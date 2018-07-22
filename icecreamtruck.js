@@ -23,45 +23,53 @@ function drawCanvas(canvas, ctx) {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 }
 function drawTruck(canvas, ctx) {
-    ctx.beginPath()
+
+    // roundedCorners();
     ctx.lineWidth = "2";
     ctx.strokeStyle = "#777";
-
     //top left rounded corner
     ctx.beginPath();
     ctx.arc(xPos + 10, yPos + 10, 10, Math.PI, 1.5 * Math.PI);
     ctx.stroke();
 
-    //top right rounded corner
-    ctx.beginPath();
-    ctx.arc(xPos - 10 + (canvas.width * (2 / 3)), yPos + 10, 10, 1.5 * Math.PI, 0 * Math.PI);
+    //top line
+    ctx.lineTo(xPos + (canvas.width * (2 / 3)) - 10, yPos);
     ctx.stroke();
 
-    //bottom left rounded corner
-    ctx.beginPath();
-    ctx.arc(xPos + 10, yPos + (canvas.height * (3 / 5)) - 10, 10, 0.5 * Math.PI, Math.PI);
+    //top right rounded corner
+    ctx.arc(xPos + (canvas.width * (2 / 3)) - 10, yPos + 10, 10, 1.5 * Math.PI, 0 * Math.PI);
+    ctx.stroke();
+
+    //right line
+    ctx.lineTo(xPos + (canvas.width * (2 / 3)), yPos + (canvas.height * (3 / 5)) - 10);
     ctx.stroke();
 
     //bottom right rounded corner
-    ctx.beginPath();
-    ctx.arc(xPos - 10 + (canvas.width * (2 / 3)), yPos + (canvas.height * (3 / 5)) - 10, 10, 0, 0.5 * Math.PI);
+    ctx.arc(xPos + (canvas.width * (2 / 3)) - 10, yPos + (canvas.height * (3 / 5)) - 10, 10, 0, 0.5 * Math.PI);
     ctx.stroke();
 
-    //top line
-    ctx.moveTo(xPos + 9, yPos)
-    ctx.lineTo(xPos - 9 + (canvas.width * (2 / 3)), yPos);
-    ctx.stroke();
-    //left line
-    ctx.moveTo(xPos, yPos + 9)
-    ctx.lineTo(xPos, yPos + (canvas.height * (3 / 5)) - 9);
-    ctx.stroke();
-    //right line
-    ctx.moveTo(xPos + (canvas.width * (2 / 3)), yPos + 9)
-    ctx.lineTo(xPos + (canvas.width * (2 / 3)), yPos + (canvas.height * (3 / 5)) - 9);
-    ctx.stroke();
     //bottom line
-    ctx.moveTo(xPos + 9, yPos + (canvas.height * (3 / 5)));
-    ctx.lineTo(xPos + (canvas.width * (2 / 3)) - 9, yPos + (canvas.height * (3 / 5)));
+    ctx.lineTo(xPos - (canvas.width * (1 / 6)), yPos + (canvas.height * (3 / 5)));
     ctx.stroke();
 
+    //bottom left rounded corner
+    ctx.arc(xPos - (canvas.width * (1 / 6)), yPos + (canvas.height * (3 / 5)) - 10, 10, 0.5 * Math.PI, Math.PI);
+    ctx.stroke();
+
+    //left lines
+    ctx.lineTo(xPos - (canvas.width * (1 / 6)) - 10, yPos + (canvas.height * (1 / 3)));
+    ctx.stroke();
+
+    //top left engine rounded corner
+    ctx.arc(xPos - (canvas.width * (1 / 6)), yPos + (canvas.height * (2 / 7)), 10, Math.PI, 1.5 * Math.PI);
+    ctx.stroke();
+
+    ctx.lineTo(xPos - (canvas.width * (1 / 7)) - 10, yPos + (canvas.height * (2 / 7)) - 10);
+    ctx.stroke();
+
+    ctx.lineTo(xPos, yPos + 10);
+    ctx.stroke();
+
+    // ctx.fillStyle = "white";
+    // ctx.fill();
 }
