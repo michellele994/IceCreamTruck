@@ -25,36 +25,18 @@ function drawCanvas(canvas, ctx) {
 function drawTruck(canvas, ctx) {
     ctx.lineWidth = "3";
     ctx.strokeStyle = "#777";
-    //top left rounded corner
+    //starting at top left rounded corner going clockwise
     ctx.beginPath();
     ctx.arc(xPos + 10, yPos + 10, 10, 1.2 * Math.PI, 1.5 * Math.PI);
-
-    //top line
-    ctx.lineTo(xPos + (canvas.width * (2 / 3)) - 10, yPos);
-
     //top right rounded corner
     ctx.arc(xPos + (canvas.width * (2 / 3)) - 10, yPos + 10, 10, 1.5 * Math.PI, 0 * Math.PI);
-
-    //right line
-    ctx.lineTo(xPos + (canvas.width * (2 / 3)), yPos + (canvas.height * (3 / 5)) - 10);
-
     //bottom right rounded corner
     ctx.arc(xPos + (canvas.width * (2 / 3)) - 10, yPos + (canvas.height * (3 / 5)) - 10, 10, 0, 0.5 * Math.PI);
-
-    //bottom line
-    ctx.lineTo(xPos - (canvas.width * (1 / 6)), yPos + (canvas.height * (3 / 5)));
-
     //bottom left rounded corner
     ctx.arc(xPos - (canvas.width * (1 / 6)), yPos + (canvas.height * (3 / 5)) - 10, 10, 0.5 * Math.PI, Math.PI);
-
-    //left lines
-    ctx.lineTo(xPos - (canvas.width * (1 / 6)) - 10, yPos + (canvas.height * (1 / 3)));
-
-    //top left engine rounded corner
+    //engine
     ctx.arc(xPos - (canvas.width * (1 / 6)), yPos + (canvas.height * (1 / 3)), 10, Math.PI, 1.4 * Math.PI);
-
     ctx.lineTo(xPos - (canvas.width * (1 / 15)) - 10, yPos + (canvas.height * (1 / 4)) - 10);
-
     ctx.closePath();
     ctx.stroke();
 
@@ -67,6 +49,15 @@ function drawTruck(canvas, ctx) {
     ctx.lineWidth = "45";
     ctx.strokeStyle = "#777";
     ctx.arc((canvas.width * (1 / 4)) - (canvas.width * (1 / 25)), (canvas.height * (1 / 4)) + (canvas.height * (3 / 5)), 30, 0, 2 * Math.PI);
+    ctx.closePath();
+    ctx.stroke();
+
+    //Back tire
+    ctx.beginPath()
+    ctx.lineWidth = "45";
+    ctx.strokeStyle = "#777";
+    ctx.arc((canvas.width * (1 / 4)) + (canvas.width * (5 / 9)), (canvas.height * (1 / 4)) + (canvas.height * (3 / 5)), 30, 0, 2 * Math.PI);
+    ctx.closePath();
     ctx.stroke();
 
     // ctx.moveTo(xPos, yPos);
