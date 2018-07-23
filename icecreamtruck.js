@@ -89,15 +89,15 @@ function drawTruckDetails(canvas, ctx) {
             ctx.arc(edgeCurtain + 10, yPos + 20, 10, Math.PI, 1.5 * Math.PI);
             ctx.lineTo(edgeCurtain + (lengthOfWindow * 1 / 10), yPos + 10)
         }
-        else if (i == 9) {
-            edgeCurtain = edgeCurtain + (lengthOfWindow * 1 / 10);
-            ctx.moveTo(edgeCurtain, yPos + 10)
-            ctx.arc(edgeCurtain + (lengthOfWindow * 1 / 10) - 10, yPos + 20, 10, 1.5 * Math.PI, 0);
-        }
         else {
             edgeCurtain = edgeCurtain + (lengthOfWindow * 1 / 10);
             ctx.moveTo(edgeCurtain, yPos + 10)
-            ctx.lineTo(edgeCurtain + (lengthOfWindow * 1 / 10), yPos + 10)
+            if (i == 9) {
+                ctx.arc(edgeCurtain + (lengthOfWindow * 1 / 10) - 10, yPos + 20, 10, 1.5 * Math.PI, 0);
+            }
+            else {
+                ctx.lineTo(edgeCurtain + (lengthOfWindow * 1 / 10), yPos + 10)
+            }
         }
         ctx.arc(((edgeCurtain) + (lengthOfWindow * 1 / 10) * (1 / 2)), yPos + (canvas.height * (1 / 7)), (lengthOfWindow * 1 / 20), 2 * Math.PI, Math.PI);
         ctx.closePath();
