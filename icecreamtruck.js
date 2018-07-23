@@ -72,7 +72,7 @@ function drawTruckDetails(canvas, ctx) {
 
     //Ice Cream Window
     ctx.beginPath();
-    ctx.rect(xPos + (canvas.width * (1 / 7)), yPos + 20, (canvas.width * (3 / 7)), (canvas.height * (1 / 3)))
+    ctx.rect(xPos + (canvas.width * (1 / 7)), yPos + 20, (canvas.width * (3 / 7)), (canvas.height * (1 / 4)))
     ctx.fillStyle = "#DDD";
     ctx.fill();
     ctx.closePath();
@@ -99,7 +99,7 @@ function drawTruckDetails(canvas, ctx) {
                 ctx.lineTo(edgeCurtain + (lengthOfWindow * 1 / 10), yPos + 10)
             }
         }
-        ctx.arc(((edgeCurtain) + (lengthOfWindow * 1 / 10) * (1 / 2)), yPos + (canvas.height * (1 / 7)), (lengthOfWindow * 1 / 20), 2 * Math.PI, Math.PI);
+        ctx.arc(((edgeCurtain) + (lengthOfWindow * 1 / 10) * (1 / 2)), yPos + (canvas.height * (1 / 12)), (lengthOfWindow * 1 / 20), 2 * Math.PI, Math.PI);
         ctx.closePath();
         if (i % 2 == 0) {
             ctx.fillStyle = "red";
