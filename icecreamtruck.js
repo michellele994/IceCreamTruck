@@ -1,14 +1,14 @@
 var canvas = document.getElementById("truck");
 var ctx = canvas.getContext("2d");
-var xPos = canvas.width / 4;
-var yPos = canvas.height * (2 / 7);
+var xPos = canvas.width * (1 / 4);
+var yPos = canvas.height * (8 / 25);
 setInterval(function () {
-    if (yPos == canvas.height * (2 / 7)) {
-        yPos = canvas.height * (2 / 7) + 3;
+    if (yPos == canvas.height * (8 / 25)) {
+        yPos = canvas.height * (8 / 25) + 3;
         setUp(xPos, yPos)
     }
     else {
-        yPos = canvas.height * (2 / 7);
+        yPos = canvas.height * (8 / 25);
         setUp(xPos, yPos)
     }
 
@@ -31,9 +31,9 @@ function drawTruck(canvas, ctx) {
     //Top right rounded corner
     ctx.arc(xPos + (canvas.width * (2 / 3)) - 10, yPos + 10, 10, 1.5 * Math.PI, 0 * Math.PI);
     //Bottom right rounded corner
-    ctx.arc(xPos + (canvas.width * (2 / 3)) - 10, yPos + (canvas.height * (3 / 5)) - 10, 10, 0, 0.5 * Math.PI);
+    ctx.arc(xPos + (canvas.width * (2 / 3)) - 10, yPos + (canvas.height * (4 / 7)) - 10, 10, 0, 0.5 * Math.PI);
     //Bottom left rounded corner
-    ctx.arc(xPos - (canvas.width * (1 / 6)), yPos + (canvas.height * (3 / 5)) - 10, 10, 0.5 * Math.PI, Math.PI);
+    ctx.arc(xPos - (canvas.width * (1 / 6)), yPos + (canvas.height * (4 / 7)) - 10, 10, 0.5 * Math.PI, Math.PI);
     //Engine
     ctx.arc(xPos - (canvas.width * (1 / 6)), yPos + (canvas.height * (1 / 3)), 10, Math.PI, 1.4 * Math.PI);
     ctx.lineTo(xPos - (canvas.width * (1 / 15)) - 10, yPos + (canvas.height * (1 / 4)) - 10);
@@ -45,12 +45,12 @@ function drawTruck(canvas, ctx) {
     ctx.beginPath()
     ctx.lineWidth = "45";
     ctx.strokeStyle = "#777";
-    ctx.arc((canvas.width * (1 / 4)) - (canvas.width * (1 / 25)), (canvas.height * (2 / 7)) + (canvas.height * (3 / 5)), 30, 0, 2 * Math.PI);
+    ctx.arc((canvas.width * (1 / 4)) - (canvas.width * (1 / 25)), (canvas.height * (8 / 25)) + (canvas.height * (4 / 7)), 30, 0, 2 * Math.PI);
     ctx.closePath();
     ctx.stroke();
     //Back tire
     ctx.beginPath();
-    ctx.arc((canvas.width * (1 / 4)) + (canvas.width * (5 / 9)), (canvas.height * (2 / 7)) + (canvas.height * (3 / 5)), 30, 0, 2 * Math.PI);
+    ctx.arc((canvas.width * (1 / 4)) + (canvas.width * (5 / 9)), (canvas.height * (8 / 25)) + (canvas.height * (4 / 7)), 30, 0, 2 * Math.PI);
     ctx.closePath();
     ctx.stroke();
 
