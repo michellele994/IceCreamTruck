@@ -82,28 +82,62 @@ function drawTruckDetails(canvas, ctx) {
     ctx.lineWidth = "2";
     ctx.strokeStyle = "#777";
     //Left rounded corner
-    ctx.beginPath();
     // ctx.arc(xPos + (canvas.width * (1 / 7)), yPos + 20, 10, Math.PI, 1.5 * Math.PI);
     // ctx.arc(xPos + (canvas.width * (4 / 7)), yPos + 20, 10, 1.5 * Math.PI, 2 * Math.PI);
 
     //Beginning the dress of the curtain
-    // var xPosOfDress = xPos + (canvas.width * (1 / 7)) + 10;
-    for (var i = 0; i < 11; i++) {
+    var lengthOfWindow = (canvas.width * (3 / 7)) + 20
+    var leftEdgeCurtain = (xPos + (canvas.width * (1 / 7)) - 10);
+    // var xPosOfEachRightEdgeCurtain = leftEdgeCurtain + (lengthOfWindow * 1 / 10)
+    for (var i = 0; i < 10; i++) {
         if (i == 0) {
-            ctx.arc(xPos + (canvas.width * (1 / 7)), yPos + 20, 10, Math.PI, 1.5 * Math.PI);
-            ctx.lineTo(xPos + (canvas.width * (1 / 5) + 11), yPos + 10)
-            ctx.arc((((2 * xPos) + (canvas.width * (12 / 35)) + 1) * (1 / 2)), yPos + (canvas.height * (1 / 7)), ((xPos + (canvas.width * (1 / 7)) + (((canvas.width * (4 / 7)) + 10) * 1 / 10)) - (xPos + (canvas.width * (1 / 7)))) * (1 / 2) + 10, 2 * Math.PI, Math.PI);
+            ctx.beginPath();
+            ctx.arc(leftEdgeCurtain + 10, yPos + 20, 10, Math.PI, 1.5 * Math.PI);
+            ctx.lineTo(leftEdgeCurtain + (lengthOfWindow * 1 / 10), yPos + 10)
+            ctx.arc(((leftEdgeCurtain) + (lengthOfWindow * 1 / 10) * (1 / 2)), yPos + (canvas.height * (1 / 7)), (lengthOfWindow * 1 / 20), 2 * Math.PI, Math.PI);
+            ctx.closePath();
+            ctx.fillStyle = "red";
+            ctx.fill();
+            ctx.stroke();
         }
-        // ctx.arc(xPosOfDress - (i * (canvas.width * (3 / 7) * (1 / 10))), yPos + (canvas.height * (1 / 7)), (canvas.width * (3 / 7) * (1 / 20)), 2 * Math.PI, Math.PI);
-        if (i !== 10) {
-            // ctx.lineTo(xPosOfDress - (i * (canvas.width * (3 / 7) * (1 / 10))) - 15, yPos + 10)
+        else if (i == 9) {
+            leftEdgeCurtain = leftEdgeCurtain + (lengthOfWindow * 1 / 10);
+            ctx.beginPath();
+            ctx.moveTo(leftEdgeCurtain, yPos + 10)
+            ctx.arc(leftEdgeCurtain + (lengthOfWindow * 1 / 10) - 10, yPos + 20, 10, 1.5 * Math.PI, 0);
+            ctx.arc(((leftEdgeCurtain) + (lengthOfWindow * 1 / 10) * (1 / 2)), yPos + (canvas.height * (1 / 7)), (lengthOfWindow * 1 / 20), 2 * Math.PI, Math.PI);
+            ctx.closePath();
+            ctx.fillStyle = "yellow";
+            ctx.fill();
+            ctx.stroke();
+        }
+        else if (i % 2 == 0) {
+            leftEdgeCurtain = leftEdgeCurtain + (lengthOfWindow * 1 / 10);
+            ctx.beginPath();
+            ctx.moveTo(leftEdgeCurtain, yPos + 10)
+            ctx.lineTo(leftEdgeCurtain + (lengthOfWindow * 1 / 10), yPos + 10)
+            ctx.arc(((leftEdgeCurtain) + (lengthOfWindow * 1 / 10) * (1 / 2)), yPos + (canvas.height * (1 / 7)), (lengthOfWindow * 1 / 20), 2 * Math.PI, Math.PI);
+            ctx.closePath();
+            ctx.fillStyle = "red";
+            ctx.fill();
+            ctx.stroke();
+        }
+        else if (i % 2 !== 0) {
+            leftEdgeCurtain = leftEdgeCurtain + (lengthOfWindow * 1 / 10);
+            ctx.beginPath();
+            ctx.moveTo(leftEdgeCurtain, yPos + 10)
+            ctx.lineTo(leftEdgeCurtain + (lengthOfWindow * 1 / 10), yPos + 10)
+            ctx.arc(((leftEdgeCurtain) + (lengthOfWindow * 1 / 10) * (1 / 2)), yPos + (canvas.height * (1 / 7)), (lengthOfWindow * 1 / 20), 2 * Math.PI, Math.PI);
+            ctx.closePath();
+            ctx.fillStyle = "yellow";
+            ctx.fill();
+            ctx.stroke();
         }
     }
     // ctx.arc(xPos + (canvas.width * (4 / 7) + 13), yPos + 20, 10, 1.5 * Math.PI, 2 * Math.PI);
 
     // ((xPos + (canvas.width * (1 / 7)) + (((canvas.width * (4 / 7)) + 10) * 1 / 10)) - (xPos + (canvas.width * (1 / 7))))* (1/2)
-    ctx.closePath();
 
-    ctx.stroke();
+
 };
 
