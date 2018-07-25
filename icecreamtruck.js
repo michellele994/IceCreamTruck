@@ -1,8 +1,12 @@
+var audio = new Audio('icecreammusic.mp3');
+audio.volume = 0.8;
+audio.play();
 var canvas = document.getElementById("truck");
 var ctx = canvas.getContext("2d");
 var xPos = canvas.width * (2 / 7);
 var yPos = canvas.height * (11 / 25);
-
+var time = new Date();
+var currHour = (time.getHours());
 
 //Interval to make truck move up and down.
 setInterval(function () {
@@ -22,8 +26,40 @@ function setUp(xPos, yPos) {
 }
 function drawCanvas(canvas, ctx) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = "transparent";
+    var gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+    if (currHour > 5 && currHour < 19) {
+        gradient.addColorStop("0", "#11b7fc");
+        gradient.addColorStop("0.5", "#8edeff");
+        gradient.addColorStop("1.0", "#ade7ff");
+        ctx.fillStyle = gradient
+    }
+    else if ((currHour > 4 && currHour < 6) || (currHour > 18 && currHour < 21)) {
+        gradient.addColorStop("0", "#a932ff");
+        gradient.addColorStop("0.5", "#b61add");
+        gradient.addColorStop("1.0", "#ff7944");
+        ctx.fillStyle = gradient
+    }
+    else if (currHour > 20 || currHour < 7) {
+        gradient.addColorStop("0", "#2010d1");
+        gradient.addColorStop("0.5", "#5c19d1");
+        gradient.addColorStop("1.0", "#9932ff");
+        ctx.fillStyle = gradient
+    }
+
     ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    if (currHour > 5 && currHour < 19) {
+        ctx.strokeStyle = "green";
+        ctx.fillStyle = "lightgreen";
+    }
+    else {
+        ctx.strokeStyle = "#229e49";
+        ctx.fillStyle = "#2ac15a";
+    }
+
+    ctx.rect(0, (canvas.height * (11 / 12)), canvas.width, (canvas.height * (1 / 12)))
+    ctx.fill();
+    ctx.stroke();
 }
 function drawTruck(canvas, ctx) {
     ctx.lineWidth = "2";
