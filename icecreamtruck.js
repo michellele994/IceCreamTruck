@@ -2,6 +2,9 @@ var canvas = document.getElementById("truck");
 var ctx = canvas.getContext("2d");
 var xPos = canvas.width * (2 / 7);
 var yPos = canvas.height * (11 / 25);
+
+
+//Interval to make truck move up and down.
 setInterval(function () {
     if (yPos == canvas.height * (11 / 25)) {
         yPos = canvas.height * (11 / 25) + 3;
@@ -11,7 +14,6 @@ setInterval(function () {
         yPos = canvas.height * (11 / 25);
         setUp(xPos, yPos)
     }
-
 }, 800)
 
 function setUp(xPos, yPos) {
@@ -45,14 +47,14 @@ function drawTruck(canvas, ctx) {
     ctx.beginPath()
     ctx.lineWidth = "25";
     ctx.strokeStyle = "#777";
-    ctx.arc((canvas.width * (2 / 7)), (canvas.height * (11 / 25)) + (canvas.height * (5 / 11)), 30, 0, 2 * Math.PI);
+    ctx.arc(xPos, (canvas.height * (11 / 25)) + (canvas.height * (5 / 11)), 30, 0, 2 * Math.PI);
     ctx.closePath();
     ctx.fillStyle = "silver";
     ctx.fill();
     ctx.stroke();
     //Back tire
     ctx.beginPath();
-    ctx.arc((canvas.width * (2 / 7)) + (canvas.width * (2 / 5)), (canvas.height * (11 / 25)) + (canvas.height * (5 / 11)), 30, 0, 2 * Math.PI);
+    ctx.arc(xPos + (canvas.width * (2 / 5)), (canvas.height * (11 / 25)) + (canvas.height * (5 / 11)), 30, 0, 2 * Math.PI);
     ctx.closePath();
     ctx.fillStyle = "silver";
     ctx.fill();
@@ -93,7 +95,7 @@ function drawTruckDetails(canvas, ctx) {
     ctx.closePath();
     ctx.stroke();
 
-    //Window lights
+    //Window shine
     ctx.lineWidth = "1";
     ctx.strokeStyle = "#FFF";
     ctx.beginPath();
@@ -110,6 +112,7 @@ function drawTruckDetails(canvas, ctx) {
     ctx.stroke();
 
     //Front lights
+    ctx.lineWidth = "2";
     ctx.strokeStyle = "#777";
     ctx.beginPath();
     ctx.rect(xPos - (canvas.width * (1 / 9) + 10), yPos + (canvas.height * (3 / 10)), 30, 20);
@@ -148,6 +151,30 @@ function drawTruckDetails(canvas, ctx) {
             ctx.fillStyle = "yellow";
         }
         ctx.fill();
+        ctx.stroke();
+
+        drawTopIceCream();
+    }
+    function drawTopIceCream() {
+        // ctx.lineWidth = "1";
+
+        var xStartOfIceCreamBottom = xPos + (canvas.width * (2 / 15));
+        ctx.strokeStyle = "#9c640c";
+        ctx.beginPath();
+        ctx.moveTo(xStartOfIceCreamBottom, yPos);
+        ctx.lineTo(xStartOfIceCreamBottom + (canvas.width * (1 / 5)), yPos - (canvas.height * (1 / 6)));
+        ctx.lineTo(xStartOfIceCreamBottom + (canvas.width * (3 / 13)), yPos);
+        ctx.closePath();
+        ctx.fillStyle = "#f8c471";
+        ctx.fill();
+        ctx.stroke();
+        // ctx.lineWidth = "1";
+        // ctx.strokeStyle = "#FFF";
+        // ctx.beginPath();
+
+        // ctx.moveTo(xPos + 30, yPos + (canvas.height * (1 / 6)) - 5);
+        // ctx.lineTo(xPos + (canvas.width * (1 / 12)), yPos + 50);
+        // ctx.closePath();
         ctx.stroke();
     }
 
