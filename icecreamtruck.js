@@ -170,8 +170,8 @@ function drawTruckDetails(canvas, ctx) {
     ctx.fill();
     ctx.closePath();
     ctx.stroke();
-    // (xPos + (canvas.width * (1 / 6))) + (canvas.width * (1 / 4))
-    //     (yPos + 20) + (canvas.height * (1 / 5))
+
+
     //Front lights
     ctx.lineWidth = "2";
     ctx.strokeStyle = "#777";
@@ -213,6 +213,15 @@ function drawTruckDetails(canvas, ctx) {
         }
         ctx.fill();
         ctx.stroke();
+
+        //Drawing Ice Cream Sign
+        ctx.beginPath();
+        ctx.lineWidth = "2";
+        ctx.font = "45px Fredoka One";
+        ctx.fillStyle = "white";
+        ctx.fillText("ICE CREAM", xPos + (canvas.width * (1 / 20)), yPos + (canvas.height * (1 / 3)) + 20);
+        ctx.strokeText("ICE CREAM", xPos + (canvas.width * (1 / 20)), yPos + (canvas.height * (1 / 3)) + 20);
+        ctx.closePath();
 
         drawTopIceCream();
     }
