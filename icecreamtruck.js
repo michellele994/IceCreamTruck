@@ -45,18 +45,68 @@ function drawTruck(canvas, ctx) {
     ctx.stroke();
     //Front tire
     ctx.beginPath()
-    ctx.lineWidth = "25";
+    ctx.lineWidth = "2";
     ctx.strokeStyle = "#777";
-    ctx.arc(xPos, (canvas.height * (11 / 25)) + (canvas.height * (5 / 11)), 30, 0, 2 * Math.PI);
+    ctx.arc(xPos, yPos + (canvas.height * (5 / 11)), 45, Math.PI, 0);
     ctx.closePath();
-    ctx.fillStyle = "silver";
+    ctx.fillStyle = "#999";
+    ctx.fill();
+    ctx.stroke();
+    ctx.beginPath()
+    ctx.lineWidth = "2";
+    ctx.strokeStyle = "#333";
+    ctx.arc(xPos, (canvas.height * (11 / 25)) + (canvas.height * (5 / 11)), 40, 0, 2 * Math.PI);
+    ctx.closePath();
+    ctx.fillStyle = "#555";
+    ctx.fill();
+    ctx.stroke();
+    ctx.beginPath()
+    ctx.lineWidth = "2";
+    ctx.strokeStyle = "#333";
+    ctx.arc(xPos, (canvas.height * (11 / 25)) + (canvas.height * (5 / 11)), 20, 0, 2 * Math.PI);
+    ctx.closePath();
+    ctx.fillStyle = "#999";
+    ctx.fill();
+    ctx.stroke();
+    ctx.beginPath()
+    ctx.lineWidth = "2";
+    ctx.strokeStyle = "#333";
+    ctx.arc(xPos, (canvas.height * (11 / 25)) + (canvas.height * (5 / 11)), 10, 0, 2 * Math.PI);
+    ctx.closePath();
+    ctx.fillStyle = "#555";
     ctx.fill();
     ctx.stroke();
     //Back tire
-    ctx.beginPath();
-    ctx.arc(xPos + (canvas.width * (2 / 5)), (canvas.height * (11 / 25)) + (canvas.height * (5 / 11)), 30, 0, 2 * Math.PI);
+    ctx.beginPath()
+    ctx.lineWidth = "2";
+    ctx.strokeStyle = "#777";
+    ctx.arc(xPos + (canvas.width * (2 / 5)), yPos + (canvas.height * (5 / 11)), 45, Math.PI, 0);
     ctx.closePath();
-    ctx.fillStyle = "silver";
+    ctx.fillStyle = "#999";
+    ctx.fill();
+    ctx.stroke();
+    ctx.lineWidth = "2";
+    ctx.strokeStyle = "#333";
+    ctx.beginPath();
+    ctx.arc(xPos + (canvas.width * (2 / 5)), (canvas.height * (11 / 25)) + (canvas.height * (5 / 11)), 40, 0, 2 * Math.PI);
+    ctx.closePath();
+    ctx.fillStyle = "#555";
+    ctx.fill();
+    ctx.stroke();
+    ctx.beginPath()
+    ctx.lineWidth = "2";
+    ctx.strokeStyle = "#333";
+    ctx.arc(xPos + (canvas.width * (2 / 5)), (canvas.height * (11 / 25)) + (canvas.height * (5 / 11)), 20, 0, 2 * Math.PI);
+    ctx.closePath();
+    ctx.fillStyle = "#999";
+    ctx.fill();
+    ctx.stroke();
+    ctx.beginPath()
+    ctx.lineWidth = "2";
+    ctx.strokeStyle = "#333";
+    ctx.arc(xPos + (canvas.width * (2 / 5)), (canvas.height * (11 / 25)) + (canvas.height * (5 / 11)), 10, 0, 2 * Math.PI);
+    ctx.closePath();
+    ctx.fillStyle = "#555";
     ctx.fill();
     ctx.stroke();
 
@@ -85,25 +135,15 @@ function drawTruckDetails(canvas, ctx) {
     ctx.closePath();
     ctx.stroke();
 
-    //Ice Cream Window
-    ctx.lineWidth = "2";
-    ctx.strokeStyle = "#777";
-    ctx.beginPath();
-    ctx.rect(xPos + (canvas.width * (1 / 6)), yPos + 20, (canvas.width * (1 / 4)), (canvas.height * (1 / 5)))
-    ctx.fillStyle = "#DDD";
-    ctx.fill();
-    ctx.closePath();
-    ctx.stroke();
-
     //Window shine
-    ctx.lineWidth = "1";
+    ctx.lineWidth = "2";
     ctx.strokeStyle = "#FFF";
     ctx.beginPath();
     ctx.moveTo(xPos + 10, yPos + (canvas.height * (1 / 6)) - 10);
     ctx.lineTo(xPos + (canvas.width * (1 / 12)), yPos + 30);
     ctx.closePath();
     ctx.stroke();
-    ctx.lineWidth = "1";
+    ctx.lineWidth = "2";
     ctx.strokeStyle = "#FFF";
     ctx.beginPath();
     ctx.moveTo(xPos + 30, yPos + (canvas.height * (1 / 6)) - 5);
@@ -111,6 +151,27 @@ function drawTruckDetails(canvas, ctx) {
     ctx.closePath();
     ctx.stroke();
 
+    //Ice Cream Window
+    ctx.lineWidth = "2";
+    ctx.strokeStyle = "#777";
+    ctx.beginPath();
+    ctx.rect(xPos + (canvas.width * (1 / 6)), yPos + 20, (canvas.width * (1 / 4)), (canvas.height * (1 / 5)))
+    ctx.fillStyle = "#9acdd1";
+    ctx.fill();
+    ctx.closePath();
+    ctx.stroke();
+
+    ctx.lineWidth = "2";
+    ctx.strokeStyle = "#777";
+    ctx.beginPath();
+    ctx.arc(xPos + (canvas.width * (1 / 6)), (yPos + 20) + (canvas.height * (1 / 5)), 10, 0.5 * Math.PI, 1.5 * Math.PI);
+    ctx.arc(xPos + (canvas.width * (1 / 6)) + (canvas.width * (1 / 4)), (yPos + 20) + (canvas.height * (1 / 5)), 10, 1.5 * Math.PI, 0.5 * Math.PI);
+    ctx.fillStyle = "#f7cf62";
+    ctx.fill();
+    ctx.closePath();
+    ctx.stroke();
+    // (xPos + (canvas.width * (1 / 6))) + (canvas.width * (1 / 4))
+    //     (yPos + 20) + (canvas.height * (1 / 5))
     //Front lights
     ctx.lineWidth = "2";
     ctx.strokeStyle = "#777";
@@ -145,10 +206,10 @@ function drawTruckDetails(canvas, ctx) {
         ctx.arc(((edgeCurtain) + (lengthOfWindow * 1 / 10) * (1 / 2)), yPos + (canvas.height * (1 / 12)), (lengthOfWindow * 1 / 20), 2 * Math.PI, Math.PI);
         ctx.closePath();
         if (i % 2 == 0) {
-            ctx.fillStyle = "#e57373";
+            ctx.fillStyle = "#ff4c4c";
         }
         else {
-            ctx.fillStyle = "#fff176";
+            ctx.fillStyle = "#fffb49";
         }
         ctx.fill();
         ctx.stroke();
@@ -213,18 +274,34 @@ function drawTruckDetails(canvas, ctx) {
         ctx.fillStyle = "pink";
         ctx.fill();
         ctx.stroke();
+        ctx.lineWidth = "3";
+        ctx.strokeStyle = "white";
+        ctx.beginPath();
+        ctx.arc(xPos + (canvas.width * (4 / 10)) - 5, yPos - (canvas.height * (1 / 9)), 47, 1.25 * Math.PI, 1.7 * Math.PI);
+        ctx.stroke();
+        ctx.lineWidth = "3";
+        ctx.strokeStyle = "white";
+        ctx.beginPath();
+        ctx.arc(xPos + (canvas.width * (4 / 11)) - 30, yPos - 80, 5, 1.1 * Math.PI, 1.7 * Math.PI);
+        ctx.stroke();
 
-        // ctx.beginPath();
-        // ctx.arc(xPos + (canvas.width * (4 / 11)) - 5, yPos - 15, 10, 0, 1.7 * Math.PI);
-        // ctx.fillStyle = "#d1f2eb";
-        // ctx.fill();
-        // ctx.stroke();
-        // ctx.beginPath();
-        // ctx.arc(xPos + (canvas.width * (4 / 11)) - 12, yPos - 24, 10, 0, 1.7 * Math.PI);
-        // ctx.fillStyle = "#d1f2eb";
-        // ctx.fill();
-        // ctx.stroke();
-        // ctx.closePath();
+
+        //Cherry on top
+        ctx.lineWidth = "2";
+        ctx.strokeStyle = "#f44336";
+        ctx.beginPath();
+        ctx.arc(xPos + (canvas.width * (4 / 10)) + 45, yPos - (canvas.height * (1 / 9)) - 20, 12, 0, 2 * Math.PI);
+        ctx.lineTo(xPos + (canvas.width * (4 / 10)) + 67, yPos - (canvas.height * (1 / 9)) - 20)
+        ctx.closePath();
+        ctx.fillStyle = "#e57373";
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.lineWidth = "2";
+        ctx.strokeStyle = "white";
+        ctx.beginPath();
+        ctx.arc(xPos + (canvas.width * (4 / 10)) + 45, yPos - (canvas.height * (1 / 9)) - 20, 8, 1.3 * Math.PI, 1.8 * Math.PI);
+        ctx.stroke();
     }
 
 
