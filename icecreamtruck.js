@@ -122,11 +122,11 @@ function drawTruckDetails(canvas, ctx) {
     ctx.stroke();
 
     //Ice Cream Window Curtains
-    ctx.lineWidth = "2";
-    ctx.strokeStyle = "#777";
     var lengthOfWindow = (canvas.width * (1 / 4)) + 20
     var edgeCurtain = (xPos + (canvas.width * (1 / 6)) - 10);
     for (var i = 0; i < 10; i++) {
+        ctx.lineWidth = "2";
+        ctx.strokeStyle = "#777";
         ctx.beginPath();
         if (i == 0) {
             ctx.arc(edgeCurtain + 10, yPos + 25, 10, Math.PI, 1.5 * Math.PI);
@@ -156,9 +156,8 @@ function drawTruckDetails(canvas, ctx) {
         drawTopIceCream();
     }
     function drawTopIceCream() {
-        // ctx.lineWidth = "1";
-
         var xStartOfIceCreamBottom = xPos + (canvas.width * (2 / 15));
+        var rightEdge;
         ctx.strokeStyle = "#9c640c";
         ctx.beginPath();
         ctx.moveTo(xStartOfIceCreamBottom, yPos);
@@ -168,14 +167,35 @@ function drawTruckDetails(canvas, ctx) {
         ctx.fillStyle = "#f8c471";
         ctx.fill();
         ctx.stroke();
-        // ctx.lineWidth = "1";
-        // ctx.strokeStyle = "#FFF";
-        // ctx.beginPath();
+        ctx.lineWidth = "1";
+        ctx.strokeStyle = "#b9770e";
+        ctx.fillStyle = "#b9770e";
+        for (var i = 1; i < 16; i++) {
+            ctx.beginPath();
+            ctx.rect(xStartOfIceCreamBottom + (10 * i), yPos - (5 * i), 3, 3);
+            ctx.fill();
+            ctx.stroke();
+        }
 
-        // ctx.moveTo(xPos + 30, yPos + (canvas.height * (1 / 6)) - 5);
-        // ctx.lineTo(xPos + (canvas.width * (1 / 12)), yPos + 50);
-        // ctx.closePath();
-        ctx.stroke();
+        //Pattern inside ice cream
+        var firstSet = 3;
+        var secondSet = 11;
+        for (var i = 1; i < 5; i++) {
+            for (var j = firstSet; j < 17; j++) {
+                ctx.beginPath();
+                ctx.rect(xStartOfIceCreamBottom + (10 * j), (yPos - (5 * j)) + (10 * i), 3, 3);
+                ctx.fill();
+                ctx.stroke();
+            }
+            for (var j = secondSet; j < 18; j++) {
+                ctx.beginPath();
+                ctx.rect(xStartOfIceCreamBottom + (10 * j), (yPos - (5 * j)) + 40 + (10 * i), 3, 3);
+                ctx.fill();
+                ctx.stroke();
+            }
+            firstSet = firstSet + 2;
+            secondSet = secondSet + 2;
+        }
     }
 
 
