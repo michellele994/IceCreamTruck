@@ -228,6 +228,20 @@ function drawTruckDetails(canvas, ctx) {
     ctx.closePath();
     ctx.stroke();
 
+    //Server hair
+    ctx.lineCap = "round";
+    ctx.lineWidth = "6";
+    ctx.strokeStyle = "#775e2c";
+    ctx.beginPath();
+    ctx.arc(xPos + (canvas.width * (1 / 6)) + (canvas.width * (1 / 8)), yPos + 20 + (canvas.height * (1 / 5)) - (canvas.height * (1 / 10)), 25, 1.8 * Math.PI, 2 * Math.PI)
+    ctx.stroke();
+    ctx.lineCap = "round";
+    ctx.lineWidth = "6";
+    ctx.strokeStyle = "#775e2c";
+    ctx.beginPath();
+    ctx.arc(xPos + (canvas.width * (1 / 6)) + (canvas.width * (1 / 8)), yPos + 20 + (canvas.height * (1 / 5)) - (canvas.height * (1 / 10)), 25, Math.PI, 1.2 * Math.PI)
+    ctx.stroke();
+
     //right eye
     ctx.lineWidth = "2";
     ctx.strokeStyle = "#555";
