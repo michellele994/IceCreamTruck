@@ -1,7 +1,11 @@
 var audio = new Audio('icecreammusic.mp3');
 audio.volume = 0.8;
+audio.pause();
+
 audio.play();
 audio.loop = true;
+
+
 var canvas = document.getElementById("truck");
 var ctx = canvas.getContext("2d");
 var xPos = canvas.width * (2 / 7);
@@ -58,7 +62,7 @@ function drawCanvas(canvas, ctx) {
         ctx.fillStyle = "#2ac15a";
     }
 
-    ctx.rect(0, (canvas.height * (11 / 12)), canvas.width, (canvas.height * (1 / 12)))
+    ctx.rect(0 - (canvas.width * (1 / 12)), (canvas.height * (11 / 12)), canvas.width + (canvas.width * (2 / 12)), (canvas.height * (2 / 12)))
     ctx.fill();
     ctx.stroke();
 }
@@ -208,75 +212,7 @@ function drawTruckDetails(canvas, ctx) {
     ctx.closePath();
     ctx.stroke();
 
-    //Server Body
-    ctx.lineWidth = "2";
-    ctx.strokeStyle = "#777";
-    ctx.beginPath();
-    ctx.arc(xPos + (canvas.width * (1 / 6)) + (canvas.width * (1 / 8)), yPos + 20 + (canvas.height * (1 / 5)), 40, 1.08 * Math.PI, 1.92 * Math.PI)
-    ctx.fillStyle = "#e3afff";
-    ctx.fill();
-    ctx.closePath();
-    ctx.stroke();
-
-    //Server head
-    ctx.lineWidth = "2";
-    ctx.strokeStyle = "#777";
-    ctx.beginPath();
-    ctx.arc(xPos + (canvas.width * (1 / 6)) + (canvas.width * (1 / 8)), yPos + 20 + (canvas.height * (1 / 5)) - (canvas.height * (1 / 10)), 25, 0, 2 * Math.PI)
-    ctx.fillStyle = "#ffea9e";
-    ctx.fill();
-    ctx.closePath();
-    ctx.stroke();
-
-    //Server hair
-    ctx.lineCap = "round";
-    ctx.lineWidth = "6";
-    ctx.strokeStyle = "#775e2c";
-    ctx.beginPath();
-    ctx.arc(xPos + (canvas.width * (1 / 6)) + (canvas.width * (1 / 8)), yPos + 20 + (canvas.height * (1 / 5)) - (canvas.height * (1 / 10)), 25, 1.8 * Math.PI, 2 * Math.PI)
-    ctx.stroke();
-    ctx.lineCap = "round";
-    ctx.lineWidth = "6";
-    ctx.strokeStyle = "#775e2c";
-    ctx.beginPath();
-    ctx.arc(xPos + (canvas.width * (1 / 6)) + (canvas.width * (1 / 8)), yPos + 20 + (canvas.height * (1 / 5)) - (canvas.height * (1 / 10)), 25, Math.PI, 1.2 * Math.PI)
-    ctx.stroke();
-
-    //right eye
-    ctx.lineWidth = "2";
-    ctx.strokeStyle = "#555";
-    ctx.beginPath();
-    ctx.arc(xPos + (canvas.width * (1 / 6)) + (canvas.width * (1 / 8)) + 8, yPos + 20 + (canvas.height * (1 / 5)) - (canvas.height * (1 / 10)) - 4, 3, 0, 2 * Math.PI)
-    ctx.fillStyle = "#555";
-    ctx.fill();
-    ctx.closePath();
-    ctx.stroke();
-
-    //left eye
-    ctx.lineWidth = "2";
-    ctx.strokeStyle = "#555";
-    ctx.beginPath();
-    ctx.arc(xPos + (canvas.width * (1 / 6)) + (canvas.width * (1 / 8)) - 8, yPos + 20 + (canvas.height * (1 / 5)) - (canvas.height * (1 / 10)) - 4, 3, 0, 2 * Math.PI)
-    ctx.fillStyle = "#555";
-    ctx.fill();
-    ctx.closePath();
-    ctx.stroke();
-
-    //Server Mustache
-    ctx.lineWidth = "2";
-    ctx.strokeStyle = "#775e2c";
-    ctx.beginPath();
-    //right mustache
-    ctx.arc(xPos + (canvas.width * (1 / 6)) + (canvas.width * (1 / 8)) + 5, yPos + 22 + (canvas.height * (1 / 5)) - (canvas.height * (1 / 10)) + 10, 5, 0, 2 * Math.PI)
-    ctx.arc(xPos + (canvas.width * (1 / 6)) + (canvas.width * (1 / 8)) + 8, yPos + 22 + (canvas.height * (1 / 5)) - (canvas.height * (1 / 10)) + 10, 6, 0, Math.PI)
-    //left mustache
-    ctx.arc(xPos + (canvas.width * (1 / 6)) + (canvas.width * (1 / 8)) - 5, yPos + 22 + (canvas.height * (1 / 5)) - (canvas.height * (1 / 10)) + 10, 5, 0, 2 * Math.PI)
-    ctx.arc(xPos + (canvas.width * (1 / 6)) + (canvas.width * (1 / 8)) - 8, yPos + 22 + (canvas.height * (1 / 5)) - (canvas.height * (1 / 10)) + 10, 6, 0, Math.PI)
-    ctx.fillStyle = "#775e2c";
-    ctx.fill();
-    ctx.closePath();
-    ctx.stroke();
-
+    drawServer();
 
     //Front lights
     ctx.lineWidth = "2";
@@ -421,4 +357,89 @@ function drawTruckDetails(canvas, ctx) {
 
 
 };
+function drawServer() {
+    //Server Body
+    ctx.lineWidth = "2";
+    ctx.strokeStyle = "#777";
+    ctx.beginPath();
+    ctx.arc(xPos + (canvas.width * (1 / 6)) + (canvas.width * (1 / 8)), yPos + 20 + (canvas.height * (1 / 5)), 40, 1.08 * Math.PI, 1.92 * Math.PI)
+    ctx.fillStyle = "#e3afff";
+    ctx.fill();
+    ctx.closePath();
+    ctx.stroke();
 
+    //Server arm
+    ctx.lineWidth = "2";
+    ctx.strokeStyle = "#777";
+    ctx.beginPath();
+    ctx.arc(xPos + (canvas.width * (1 / 6)) + (canvas.width * (1 / 8)), yPos + 20 + (canvas.height * (1 / 5)), 20, 1.08 * Math.PI, 1.92 * Math.PI)
+    ctx.fillStyle = "#e3afff";
+    ctx.fill();
+    ctx.closePath();
+    ctx.stroke();
+
+    //Server head
+    ctx.lineWidth = "2";
+    ctx.strokeStyle = "#777";
+    ctx.beginPath();
+    ctx.arc(xPos + (canvas.width * (1 / 6)) + (canvas.width * (1 / 8)), yPos + 20 + (canvas.height * (1 / 5)) - (canvas.height * (1 / 10)), 25, 0, 2 * Math.PI)
+    ctx.fillStyle = "#ffea9e";
+    ctx.fill();
+    ctx.closePath();
+    ctx.stroke();
+
+    //Server hair
+    ctx.lineCap = "round";
+    ctx.lineWidth = "6";
+    ctx.strokeStyle = "#888";
+    ctx.beginPath();
+    ctx.arc(xPos + (canvas.width * (1 / 6)) + (canvas.width * (1 / 8)), yPos + 20 + (canvas.height * (1 / 5)) - (canvas.height * (1 / 10)), 25, 1.8 * Math.PI, 2 * Math.PI)
+    ctx.stroke();
+    ctx.lineCap = "round";
+    ctx.lineWidth = "6";
+    ctx.strokeStyle = "#888";
+    ctx.beginPath();
+    ctx.arc(xPos + (canvas.width * (1 / 6)) + (canvas.width * (1 / 8)), yPos + 20 + (canvas.height * (1 / 5)) - (canvas.height * (1 / 10)), 25, Math.PI, 1.2 * Math.PI)
+    ctx.stroke();
+
+    //right eye
+    //winking
+    ctx.lineWidth = "2";
+    ctx.strokeStyle = "#555";
+    ctx.beginPath();
+    if (yPos == canvas.height * (11 / 25) + 3) {
+        ctx.arc(xPos + (canvas.width * (1 / 6)) + (canvas.width * (1 / 8)) + 9, yPos + 22 + (canvas.height * (1 / 5)) - (canvas.height * (1 / 10)) - 4, 2, Math.PI, 2 * Math.PI)
+    }
+    else {
+        ctx.arc(xPos + (canvas.width * (1 / 6)) + (canvas.width * (1 / 8)) + 9, yPos + 20 + (canvas.height * (1 / 5)) - (canvas.height * (1 / 10)) - 4, 2, 0, 2 * Math.PI)
+        ctx.fillStyle = "#555";
+        ctx.fill();
+        ctx.closePath();
+    }
+    ctx.stroke();
+
+    //left eye
+    ctx.lineWidth = "2";
+    ctx.strokeStyle = "#555";
+    ctx.beginPath();
+    ctx.arc(xPos + (canvas.width * (1 / 6)) + (canvas.width * (1 / 8)) - 9, yPos + 20 + (canvas.height * (1 / 5)) - (canvas.height * (1 / 10)) - 4, 2, 0, 2 * Math.PI)
+    ctx.fillStyle = "#555";
+    ctx.fill();
+    ctx.closePath();
+    ctx.stroke();
+
+    //Server Mustache
+    ctx.lineWidth = "2";
+    ctx.strokeStyle = "#888";
+    ctx.beginPath();
+    //right mustache
+    ctx.arc(xPos + (canvas.width * (1 / 6)) + (canvas.width * (1 / 8)) + 5, yPos + 22 + (canvas.height * (1 / 5)) - (canvas.height * (1 / 10)) + 10, 5, 0, 2 * Math.PI)
+    ctx.arc(xPos + (canvas.width * (1 / 6)) + (canvas.width * (1 / 8)) + 8, yPos + 22 + (canvas.height * (1 / 5)) - (canvas.height * (1 / 10)) + 10, 6, 0, Math.PI)
+    //left mustache
+    ctx.arc(xPos + (canvas.width * (1 / 6)) + (canvas.width * (1 / 8)) - 5, yPos + 22 + (canvas.height * (1 / 5)) - (canvas.height * (1 / 10)) + 10, 5, 0, 2 * Math.PI)
+    ctx.arc(xPos + (canvas.width * (1 / 6)) + (canvas.width * (1 / 8)) - 8, yPos + 22 + (canvas.height * (1 / 5)) - (canvas.height * (1 / 10)) + 10, 6, 0, Math.PI)
+    ctx.fillStyle = "#888";
+    ctx.fill();
+    ctx.closePath();
+    ctx.stroke();
+}
