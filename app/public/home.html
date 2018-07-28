@@ -4,23 +4,26 @@
 <head>
     <title>Ice Cream Truck!!</title>
     <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/style.css">
     <script src="https://code.jquery.com/jquery.js"></script>
+    <link rel="shortcut icon" href="">
     <meta charset="UTF-8">
 </head>
 
 <body>
     <div class="wrapper">
         The ice cream truck is here!
-        <br>Music:
+        <br>Music: https://www.bensound.com
         <br>
         <button class="play-button">PLAY</button>
 
         <canvas id="truck" width="800" height="500">
-            Your browser does not support the canvas element. Music: https://www.bensound.com
+            Your browser does not support the canvas element.
         </canvas>
     </div>
-    <script type="text/javascript" src="icecreamtruck.js"></script>
+    <!-- <script type="text/javascript" src="javascript/interactive/music.js"></script> -->
+    <!-- <script type="text/javascript" src="javascript/drawings/draw.js"></script> -->
+    <script data-main="scripts/main" src="scripts/require.js"></script>
 </body>
 
 </html>

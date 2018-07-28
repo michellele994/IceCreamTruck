@@ -1,0 +1,27 @@
+{
+  "name": "icecreamtruck",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michellele994/IceCreamTruck.git"
+  },
+  "author": "Michelle Le",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/michellele994/IceCreamTruck/issues"
+  },
+  "homepage": "https://github.com/michellele994/IceCreamTruck#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "path": "^0.12.7",
+    "request": "^2.87.0",
+    "requirejs": "^2.3.5"
+  }
+}
