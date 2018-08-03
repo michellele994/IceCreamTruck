@@ -1,5 +1,7 @@
-var xPosForCloud = -190;
-var yPosForCloud = 100;
+var xPosForCloudOne = 500;
+var yPosForCloudOne = 100;
+var xPosForCloudTwo = 50;
+var yPosForCloudTwo = 300;
 define(function (canvas, ctx, xPos, yPos, currHour) {
     return function drawMidday(canvas, ctx, xPos, yPos, currHour) {
 
@@ -12,18 +14,32 @@ define(function (canvas, ctx, xPos, yPos, currHour) {
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         ctx.restore();
 
-        //Cloud
-        var cloudGrad = ctx.createLinearGradient(xPosForCloud, yPosForCloud, 0, 120);
-        cloudGrad.addColorStop("0.9", "white");
-        cloudGrad.addColorStop("1", "#aaa");
-        // cloudGrad.addColorStop("1.0", "#ade7ff");
+        //Clouds
+        var cloudGradOne = ctx.createLinearGradient(0, yPosForCloudOne - 50, 0, yPosForCloudOne + 100);
+        cloudGradOne.addColorStop("0.35", "white");
+        cloudGradOne.addColorStop("1", "black");
+        // cloudGradOne.addColorStop("1.0", "#ade7ff");
         ctx.strokeStyle = "#777";
-        ctx.fillStyle = cloudGrad;
+        ctx.fillStyle = cloudGradOne;
         ctx.beginPath();
-        ctx.arc(xPosForCloud, yPosForCloud, 20, 0.5 * Math.PI, 1.7 * Math.PI)
-        ctx.arc(xPosForCloud + 45, yPosForCloud, 40, 1.15 * Math.PI, 1.7 * Math.PI)
-        ctx.arc(xPosForCloud + 120, yPosForCloud, 60, 1.15 * Math.PI, 1.89 * Math.PI)
-        ctx.arc(xPosForCloud + 180, yPosForCloud, 20, 1.3 * Math.PI, 0.5 * Math.PI)
+        ctx.arc(xPosForCloudOne, yPosForCloudOne, 20, 0.5 * Math.PI, 1.7 * Math.PI)
+        ctx.arc(xPosForCloudOne + 45, yPosForCloudOne, 40, 1.15 * Math.PI, 1.7 * Math.PI)
+        ctx.arc(xPosForCloudOne + 120, yPosForCloudOne, 60, 1.15 * Math.PI, 1.89 * Math.PI)
+        ctx.arc(xPosForCloudOne + 180, yPosForCloudOne, 20, 1.3 * Math.PI, 0.5 * Math.PI)
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+        ctx.restore();
+
+        var cloudGradTwo = ctx.createLinearGradient(0, yPosForCloudTwo - 50, 0, yPosForCloudTwo + 100);
+        cloudGradTwo.addColorStop("0.35", "white");
+        cloudGradTwo.addColorStop("1", "black");
+        ctx.strokeStyle = "#777";
+        ctx.fillStyle = cloudGradTwo;
+        ctx.beginPath();
+        ctx.arc(xPosForCloudTwo, yPosForCloudTwo, 20, 0.5 * Math.PI, 1.7 * Math.PI)
+        ctx.arc(xPosForCloudTwo + 63, yPosForCloudTwo + 15, 60, 1.15 * Math.PI, 1.85 * Math.PI)
+        ctx.arc(xPosForCloudTwo + 120, yPosForCloudTwo, 20, 1.4 * Math.PI, 0.5 * Math.PI)
         ctx.closePath();
         ctx.fill();
         ctx.stroke();
@@ -40,12 +56,19 @@ define(function (canvas, ctx, xPos, yPos, currHour) {
         ctx.closePath();
         ctx.restore();
 
-        if (xPosForCloud < -200) {
-            yPosForCloud = Math.floor(Math.random() * (canvas.height * (11 / 12)));
-            xPosForCloud = 800;
+        if (xPosForCloudOne < -200) {
+            yPosForCloudOne = Math.floor(Math.random() * (canvas.height * (11 / 12)));
+            xPosForCloudOne = 1000;
         }
         else {
-            xPosForCloud -= 1;
+            xPosForCloudOne -= 2;
+        }
+        if (xPosForCloudTwo < -200) {
+            yPosForCloudTwo = Math.floor(Math.random() * (canvas.height * (11 / 12)));
+            xPosForCloudTwo = 1000;
+        }
+        else {
+            xPosForCloudTwo -= 3;
         }
     }
 });
