@@ -34,7 +34,6 @@ define(function () {
         ctx.closePath();
         ctx.stroke();
 
-
         //Server hands
         ctx.lineWidth = "2";
         ctx.strokeStyle = "#777";
@@ -153,7 +152,5 @@ define(function () {
         ctx.fillStyle = "#ffea9e";
         ctx.fill();
         ctx.stroke();
-
-
     }
 });
