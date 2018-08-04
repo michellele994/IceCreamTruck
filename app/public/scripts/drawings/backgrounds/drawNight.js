@@ -1,5 +1,6 @@
 define(function (canvas, ctx, xPos, yPos, currHour) {
     return function drawNight(canvas, ctx, xPos, yPos, currHour) {
+        document.body.style.background = "purple url('../../../assets/icecreambackgroundnight.png')";
         var gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
         gradient.addColorStop("0", "#010a70");
         gradient.addColorStop("0.5", "#5c19d1");

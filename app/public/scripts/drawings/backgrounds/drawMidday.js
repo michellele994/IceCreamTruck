@@ -4,6 +4,7 @@ var xPosForCloudTwo = 50;
 var yPosForCloudTwo = 300;
 define(function (canvas, ctx, xPos, yPos, currHour) {
     return function drawMidday(canvas, ctx, xPos, yPos, currHour) {
+        document.body.style.background = "#96e3ff url('../../../assets/icecreambackgroundmidday.png')";
 
         //sky
         var gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);

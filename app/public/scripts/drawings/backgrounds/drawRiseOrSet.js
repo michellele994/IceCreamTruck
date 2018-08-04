@@ -1,5 +1,6 @@
 define(function (canvas, ctx, xPos, yPos, currHour) {
     return function drawRiseOrSet(canvas, ctx, xPos, yPos, currHour) {
+        document.body.style.background = "pink url('../../../assets/icecreambackgroundriseorset.png')";
         var gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
         gradient.addColorStop("0", "#a932ff");
         gradient.addColorStop("0.5", "#b61add");
