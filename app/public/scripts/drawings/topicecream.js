@@ -1,5 +1,7 @@
 define(function () {
     return function drawTopIceCream(canvas, ctx, xPos, yPos) {
+
+        //Ice cream cone
         var xStartOfIceCreamBottom = xPos + (canvas.width * (2 / 15));
         var rightEdge;
         ctx.strokeStyle = "#9c640c";
@@ -21,7 +23,7 @@ define(function () {
             ctx.stroke();
         }
 
-        //Pattern inside ice cream
+        //Pattern inside ice cream cone
         var firstSet = 3;
         var secondSet = 11;
         for (var i = 1; i < 5; i++) {

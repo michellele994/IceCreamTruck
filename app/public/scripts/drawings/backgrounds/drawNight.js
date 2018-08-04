@@ -1,6 +1,9 @@
 define(function (canvas, ctx, xPos, yPos, currHour) {
     return function drawNight(canvas, ctx, xPos, yPos, currHour) {
+        //Changing background of HTML
         document.body.style.background = "purple url('../../../assets/icecreambackgroundnight.png')";
+
+        //Adding gradient to canvas
         var gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
         gradient.addColorStop("0", "#010a70");
         gradient.addColorStop("0.5", "#5c19d1");
@@ -8,7 +11,7 @@ define(function (canvas, ctx, xPos, yPos, currHour) {
         ctx.fillStyle = gradient
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-        //Stars
+        //Adding Stars
         ctx.fillStyle = "white";
         for (var i = 0; i < 20; i++) {
             if (i % 2 == 0) {

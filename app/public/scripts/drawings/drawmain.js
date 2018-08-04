@@ -6,7 +6,7 @@ define(["./canvasbg", "./truck"], function (drawCanvas, drawTruck) {
         var xPos = canvas.width * (2 / 7);
         var yPos = canvas.height * (11 / 25);
 
-        //Interval to make truck move up and down.
+        //Interval to make items in canvas move
         setInterval(function () {
             if (yPos == canvas.height * (11 / 25)) {
                 yPos = canvas.height * (11 / 25) + 3;

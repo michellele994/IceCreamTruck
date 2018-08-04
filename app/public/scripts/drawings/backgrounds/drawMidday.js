@@ -4,9 +4,11 @@ var xPosForCloudTwo = 50;
 var yPosForCloudTwo = 300;
 define(function (canvas, ctx, xPos, yPos, currHour) {
     return function drawMidday(canvas, ctx, xPos, yPos, currHour) {
-        document.body.style.background = "#96e3ff url('../../../assets/icecreambackgroundmidday.png')";
+        //Changing background of the HTML
+        document.body.style.background = "#ffefce url('../../../assets/icecreambackgroundmidday.png')";
 
-        //sky
+
+        //Adding gradient for the canvas
         var gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
         gradient.addColorStop("0", "#11b7fc");
         gradient.addColorStop("0.5", "#8edeff");
@@ -19,7 +21,6 @@ define(function (canvas, ctx, xPos, yPos, currHour) {
         var cloudGradOne = ctx.createLinearGradient(0, yPosForCloudOne - 50, 0, yPosForCloudOne + 100);
         cloudGradOne.addColorStop("0.35", "white");
         cloudGradOne.addColorStop("1", "black");
-        // cloudGradOne.addColorStop("1.0", "#ade7ff");
         ctx.strokeStyle = "#777";
         ctx.fillStyle = cloudGradOne;
         ctx.beginPath();

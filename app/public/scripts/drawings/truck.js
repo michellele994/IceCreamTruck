@@ -1,5 +1,7 @@
 define(["./truckdetails"], function (drawTruckDetails) {
     return function drawTruck(canvas, ctx, xPos, yPos) {
+
+        //Main truck shape
         ctx.lineWidth = "2";
         ctx.strokeStyle = "#777";
         ctx.beginPath();
@@ -17,6 +19,7 @@ define(["./truckdetails"], function (drawTruckDetails) {
         ctx.fillStyle = "#fef9e7";
         ctx.fill();
         ctx.stroke();
+
         //Front tire
         ctx.beginPath()
         ctx.lineWidth = "2";
